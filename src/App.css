@@ -25,6 +25,8 @@
   flex-basis: 50%;
   background-color: #c8c3cc;
   margin: 50px;
+  height: fit-content;
+  
 }
 
 .radio_cont{

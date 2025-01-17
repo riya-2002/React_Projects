@@ -41,9 +41,21 @@ const NoteProvider = (props) => {
         setSelective({[name]:value})
     }
 
+    let handleDelete = (x) => {
+        let filteredItem = task.filter(item => item.id !=x)
+        setTask(filteredItem)
+    }
+
+    let handleupdate = (y) =>{
+        let remainingItems = task.filter(item => item.id !=y)
+        let editItem = task.find(item => item.id ==y)
+        setTask(remainingItems)
+        setState(editItem)
+    }
+
   return (
     <div>
-        <NoteContext.Provider value={{state,setState,addTask,task, selective, handleChange}}>
+        <NoteContext.Provider value={{state,setState,addTask,task, selective, handleChange, handleDelete, handleupdate}}>
             {props.children}
         </NoteContext.Provider>
       

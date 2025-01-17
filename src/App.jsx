@@ -12,7 +12,7 @@ function App() {
     <NoteProvider>
       <main className="maincont">
         <NoteForm></NoteForm>
-          <DisplayNotes></DisplayNotes>
+        <DisplayNotes></DisplayNotes>
       </main>
     </NoteProvider>
     </>

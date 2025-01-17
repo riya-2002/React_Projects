@@ -11,7 +11,7 @@ const DisplayNotes = () => {
       <h1>Notes</h1>
       <div  className='radio_cont' name="selectedCategory" value={data.selective} onChange={data.handleChange}>
         <label >Select a category</label>
-        <input name='selectedCategory' type='radio' value="All"></input>
+        <input name='selectedCategory'  defaultChecked type='radio' value="All"></input>
         <span>All</span>
         <input name='selectedCategory' type='radio' value="General"></input>
         <span>General</span>
@@ -21,8 +21,8 @@ const DisplayNotes = () => {
         <span>Expenses</span>
       </div>
       {
-        task.length === 0 ? <h1>Loading....</h1> :  task.map((item)=>{
-          if (item.category == data.selective.selectedCategory || data.selective=="All"){
+        task.length === 0 ? <h1>No Notes....</h1> :  task.map((item)=>{
+          if ( data.selective.selectedCategory=="All" || item.category == data.selective.selectedCategory){
           return(
             <div className='notes_display' key={item.id}>
               <h2>{item.title}</h2>
@@ -31,6 +31,8 @@ const DisplayNotes = () => {
               <p>Description</p>
               <br></br>
               <p>{item.description}</p>
+              <span onClick={()=>data.handleDelete(item.id)}>Delete</span>
+              <span onClick={()=>data.handleupdate(item.id)}>Edit</span>
             </div>
           )}
         })
